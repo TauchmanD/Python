@@ -123,12 +123,8 @@ def play(position, velikost):
             for y in range(3):
                 for x in range(3):
                     if not ((sY + y < 0 or sY + y > velikost - 1) or (sX + x < 0 or sX + x > velikost - 1)):
-                        checkUnnolve(bomby, velikost)
                         play((sY+y,sX+x),velikost)
         bomby[position[0]][position[1]] = 5
-        clear()
-        printPlan(plan, velikost)
-        print("Počet bomb: " + bombCount(bomby, velikost))
         return checkUnnolve(bomby, velikost)
 
 
@@ -147,6 +143,9 @@ while reset:
     unsolved = True
     while unsolved:
         while True:
+            clear()
+            printPlan(plan, velikost)
+            print("Počet bomb: " + bombCount(bomby, velikost))
             print()
             y = int(input("Zadej Y: "))
             x = int(input("Zadej X: "))
