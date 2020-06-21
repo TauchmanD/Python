@@ -32,7 +32,7 @@ def login():
         user = request.form['nm']
         session['user'] = user
         flash('Login succesful', 'info')
-        return redirect(url_for('user', usr=user))
+        return redirect(url_for('user'))
     else:
         if 'user' in session:
             flash('Already Logged In', 'info')
