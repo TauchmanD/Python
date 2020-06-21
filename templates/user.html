@@ -9,6 +9,9 @@
             {%endfor%}
         {%endif%}
     {% endwith %}
-<p>Vítej <b>{{user}}</b></p>
+<form action="#" method="POST">
+    <input type="email" name="email" placeholder="Zadej Email" value="{{email if email}}">
+    <input type="submit" value="Potvrdit">
+</form>
 </div>
 {%endblock%}
