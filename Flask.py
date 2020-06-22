@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = 'lul'
-app.permanent_session_lifetime = timedelta(seconds=30)
+app.permanent_session_lifetime = timedelta(minutes=5)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -28,7 +28,7 @@ def home():
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        session.permanent = False
+        session.permanent = True
         user = request.form['nm']
         session['user'] = user
         flash('Login succesful', 'info')
